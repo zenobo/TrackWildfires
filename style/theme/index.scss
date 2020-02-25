@@ -1,0 +1,51 @@
+// Colors
+$dark-grey-bk: #1D1D1D;
+$white-bk: white;
+$color-blue: #3E55D1;
+
+// Backgrounds
+$header-gradient: linear-gradient(90.09deg, #FF7A00 -1.6%, #FE5E5E 142.83%, #460000 142.83%);
+
+// Sizes
+$page-max-width: 850px;
+$sidebar-width: 275px;
+
+// Media
+$break-desktop-big: 1220px;
+$break-mobile-big: 670px;
+$break-tablet-big: 850px;
+
+// Fonts
+$mainFont: 'Saira';
+
+@mixin pageMaxWidth{
+  max-width: $page-max-width;
+
+  @media(max-width: $page-max-width){
+    max-width: 100%;
+  }
+}
+
+@mixin inlineFlex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin tableFlex{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+@mixin link {
+  color: white;
+  text-decoration: none;
+}
+
+@mixin dropShadow {
+  box-shadow: 0 3px 13px rgba(0,0,0,0.25);
+  &:hover{
+    box-shadow: none;
+  }
+}
