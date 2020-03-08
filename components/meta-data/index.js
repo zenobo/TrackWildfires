@@ -12,15 +12,15 @@ export class MetaData extends React.Component {
       window.dataLayer.push(arguments);
     };
     gtag('js', new Date());
-    gtag('config', 'UA-69537450-6');
+    gtag('config', 'UA-69537450-7');
   }
 
   getDescription = () => {
-    return 'track wildfires'
+    return 'Track the biggest wildfires globally.'
   }
 
   getTitle = () => {
-    return 'burn explorer'
+    return 'Track Wildfires';
   }
 
   render() {

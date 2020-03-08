@@ -15,19 +15,17 @@ class BarChart extends React.Component {
   componentDidMount(){
     const lineColor = 'rgba(255, 255, 255, 0.37)';
 		const color = Chart.helpers.color;
-
-    let {labels, sizes} = this.props.items;
+    const {labels, sizes} = this.props.items;
 
 		const horizontalBarChartData = {
 			labels: labels,
 			datasets: [{
 				label: 'Acres Burned',
-				backgroundColor: color('white').alpha(0.5).rgbString(),
+				backgroundColor: this.getBarColors(),
 				borderColor: 'white',
 				borderWidth: 1,
 				data: sizes
 			}]
-
 		};
 
 		window.onload = function() {
@@ -104,6 +102,15 @@ class BarChart extends React.Component {
 			});
 
 		};
+  }
+
+  getBarColors = () => {
+    const color = Chart.helpers.color;
+    let { labels, singleFire } = this.props.items;
+    const fireColor = color('white');
+    return labels.map((item, i) => (
+      singleFire.name == labels[i] ? fireColor.alpha(1).rgbString() : fireColor.alpha(0.5).rgbString()
+    ));
   }
 
   render() {

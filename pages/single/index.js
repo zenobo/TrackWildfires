@@ -17,9 +17,9 @@ class Single extends React.Component {
     const { fire } = query;
     await Promise.all([
       store.dispatch(itemActions.ProcessRawData()),
-      store.dispatch(itemActions.SetFireName(fire)),
+      store.dispatch(itemActions.SetFireDetails(fire)),
     ]);
-    return {  };
+    return { };
   }
 
   constructor(props) {
@@ -47,7 +47,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   ProcessRawData: () => dispatch(itemActions.ProcessRawData()),
-  SetFireName: (fire) => dispatch(itemActions.SetFireName(fire)),
+  SetFireDetails: (fire) => dispatch(itemActions.SetFireDetails(fire)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Single);

@@ -17,7 +17,8 @@ class Header extends React.Component {
   }
 
   render() {
-    let { total } = this.props.items;
+    const { total, singleFire } = this.props.items;
+    const { fireIndex } = singleFire;
     return (
       <div className="header-container">
         <Nav />
@@ -25,9 +26,9 @@ class Header extends React.Component {
         <div className="header-inner">
           <Title />
           <h2>
-            {total.toLocaleString()} Acres
+            {singleFire.name ? singleFire.size.toLocaleString() : total.toLocaleString()} Acres
             <span>
-              Total
+              {fireIndex ? `#${fireIndex} Biggest` : 'Total'}
             </span>
           </h2>
           <LinkText />

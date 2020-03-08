@@ -1,6 +1,7 @@
 // Actions
 export const PROCESS_RAW_DATA = 'Process Raw Data';
 export const SET_FIRE_NAME = 'Set Fire Name';
+export const SET_FIRE_DETAILS = 'Set Fire Details';
 
 // Methods
 export const ProcessRawData = () => {
@@ -33,12 +34,15 @@ export const ProcessRawData = () => {
   }
 };
 
-export const SetFireName = (fire) => {
+export const SetFireDetails = (fire) => {
   return (dispatch, getState) => {
+    const { fires } = getState().items;
+    const fireIndex = fires.findIndex((item, index) => item.name === fire);
     return dispatch({
-      type: SET_FIRE_NAME,
+      type: SET_FIRE_DETAILS,
       payload: {
-        single_fire: fire
+        index: fireIndex,
+        fire: fires[fireIndex],
       }
     })
   }

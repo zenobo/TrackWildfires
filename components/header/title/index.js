@@ -11,10 +11,10 @@ class Title extends React.Component {
   }
 
   render() {
-    let { single_fire } = this.props.items;
+    let { singleFire } = this.props.items;
     return (
       <h1>
-        Damage From {single_fire ? single_fire : 'Biggest Wildfires'}
+        Damage From {singleFire.name ? singleFire.name : 'Biggest Wildfires'}
       </h1>
     );
   }

@@ -12,10 +12,10 @@ class Nav extends React.Component {
   }
 
   render() {
-    let { single_fire } = this.props.items;
+    let { singleFire } = this.props.items;
     return (
       <div className="nav-links">
-        {single_fire && <a href="/" className="nav-home">Back to home</a>}
+        {singleFire.name && <a href="/" className="nav-home">Back to home</a>}
         <a href="https://github.com" className="nav-missing-info">Missing info? Suggest an update</a>
       </div>
     );
