@@ -4,7 +4,7 @@
   max-width: 100%;
 
   & .warning-container{
-    background: #F6F6F6;
+    background: $light-grey;
     padding: 20px;
     box-sizing: border-box;
   }
@@ -77,7 +77,7 @@
     }
 
     & .entries-dark{
-      background: #F6F6F6;
+      background: $light-grey;
     }
   }
 

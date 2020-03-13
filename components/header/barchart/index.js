@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Chart from 'chart.js';
 
-import {abbreviateNumber} from 'utility'
+import { abbreviateNumber } from 'utility';
+
+import { fires } from '../../../data/constants';
 
 class BarChart extends React.Component {
   constructor(props) {
@@ -16,6 +18,7 @@ class BarChart extends React.Component {
     const lineColor = 'rgba(255, 255, 255, 0.37)';
 		const color = Chart.helpers.color;
     const {labels, sizes} = this.props.items;
+    const { getXAxesTicks } = this;
 
 		const horizontalBarChartData = {
 			labels: labels,
@@ -77,7 +80,7 @@ class BarChart extends React.Component {
                 fontColor: 'white',
                 beginAtZero: true,
                 autoSkip: true,
-                maxTicksLimit: 7,
+                maxTicksLimit: getXAxesTicks(),
                 userCallback: function(label, index, labels) {
                   if(label=='0') return '0';
                   return abbreviateNumber(label) + ' Acres';
@@ -95,6 +98,13 @@ class BarChart extends React.Component {
               },
               ticks: {
                 fontColor: 'white',
+                callback: (value, index) => {
+                  if(window.screen.width < 650){
+                    return fires[index].shortName;
+                  }else{
+                    return value;
+                  }
+                }
               }
             }]
           }
@@ -111,6 +121,14 @@ class BarChart extends React.Component {
     return labels.map((item, i) => (
       singleFire.name == labels[i] ? fireColor.alpha(1).rgbString() : fireColor.alpha(0.5).rgbString()
     ));
+  }
+
+  getXAxesTicks = () => {
+    if(window.screen.width < 650){
+      return 2
+    }else{
+      return 4;
+    }
   }
 
   render() {
