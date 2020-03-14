@@ -1,0 +1,38 @@
+.faq-container{
+  width: $page-max-width;
+  margin: 20px auto;
+  margin-top: 50px;
+  max-width: 100%;
+  background: #eaeaea;
+  padding: 20px;
+  box-sizing: border-box;
+
+  @media (max-width: 950px){
+    width: calc(100% - 40px);
+  }
+
+  & div{
+    margin-bottom: 20px;
+  }
+
+  & p{
+    & a{
+      color: black;
+      text-decoration: underline;
+    }
+  }
+
+  & h2{
+    font-size: 18px;
+    margin-top: 0;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  & .faq-arrow{
+    margin-left: 10px;
+    margin-bottom: -2px;
+    cursor: pointer;
+  }
+
+}

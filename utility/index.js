@@ -13,4 +13,7 @@ module.exports = {
     const dt = new Date(Number(fromDate));
     return `${monthNames[dt.getMonth()]} ${dt.getDate()}/${dt.getFullYear()}`;
   },
+  entrySize: (size) => (
+    size.toLocaleString()
+  )
 };

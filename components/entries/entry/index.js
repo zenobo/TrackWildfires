@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { cleanName, entryDate } from 'utility';
+import { cleanName, entryDate, entrySize } from 'utility';
 
 class Entry extends React.Component {
   constructor(props) {
@@ -11,12 +11,7 @@ class Entry extends React.Component {
     };
   }
 
-  entrySize = (size) => {
-    return size.toLocaleString();
-  }
-
   render() {
-    let { entrySize } = this;
     let { entry } = this.props;
     return (
       <a href={`/${cleanName(entry.name)}`} className="entries-item entries-dark">

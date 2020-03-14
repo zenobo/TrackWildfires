@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 // Components
 import MetaData from 'components/meta-data';
 import Body from 'components/body';
+import Faq from 'components/faq';
 
 // Redux
 import * as itemActions from '../../redux/items/actions/index';
@@ -30,6 +31,7 @@ class Home extends React.Component {
       <div className="app">
         <MetaData />
         <Body />
+        <Faq />
       </div>
 
     );

@@ -8,6 +8,8 @@ import * as itemActions from '../../redux/items/actions/index';
 // Components
 import MetaData from 'components/meta-data';
 import Body from 'components/body';
+import Faq from 'components/faq';
+import FireDetails from 'components/fire-details'; 
 
 // CSS
 import 'style/theme/main.scss';
@@ -32,6 +34,8 @@ class Single extends React.Component {
       <div className="app">
         <MetaData />
         <Body single={true} />
+        <FireDetails />
+        <Faq />
       </div>
 
     );

@@ -1,0 +1,60 @@
+.fire-details-container{
+  width: $page-max-width;
+  margin: 20px auto;
+  margin-top: 40px;
+
+  @media (max-width: 950px){
+    width: calc(100% - 40px);
+  }
+
+  & .fire-details-inner{
+    display: block;
+    font-size: 18px;
+    border-top: 1px solid #eaeaea;
+    margin-top: 35px;
+    padding-top: 20px;
+
+    & p{
+      margin: 10px 0;
+    }
+
+  }
+
+  & .fire-details-learn{
+    background: $light-grey;
+    padding: 10px 40px;
+    box-sizing: border-box;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    float: right;
+    margin-top: -5px;
+
+    @media(max-width: 950px){
+      display: block;
+      float: none;
+      width: fit-content;
+      width: max-content;
+      margin-top: 25px;
+    }
+
+    @media(max-width: 450px){
+      width: 100%;
+      text-align: center;
+    }
+
+  }
+
+  & .fire-details-left, .fire-details-right{
+    width: 50%;
+    display: inline-block;
+
+    @media(max-width: 450px){
+      display: block;
+      width: 100%;
+    }
+
+  }
+
+}
