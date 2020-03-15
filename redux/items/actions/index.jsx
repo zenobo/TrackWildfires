@@ -38,6 +38,7 @@ export const SetFireDetails = (fire) => {
   return (dispatch, getState) => {
     const { fires } = getState().items;
     const fireIndex = fires.findIndex((item, index) => item.name === fire);
+    
     return dispatch({
       type: SET_FIRE_DETAILS,
       payload: {

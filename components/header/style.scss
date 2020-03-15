@@ -9,7 +9,7 @@
     text-align: center;
     color: white;
     padding: 20px 0;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 
     @media(max-width: 650px){
       padding: 20px 10px;
@@ -17,8 +17,18 @@
 
     & h1{
       margin: 0;
+
+      & span{
+        margin-right: 10px;
+      }
+
       @media(max-width: 650px){
         font-size: 20px;
+        margin-bottom: 20px;
+
+        & span{
+          display: block;
+        }
       }
     }
 

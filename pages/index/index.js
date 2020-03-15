@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 // Components
 import MetaData from 'components/meta-data';
 import Body from 'components/body';
 import Faq from 'components/faq';
+import Footer from 'components/footer';
 
 // Redux
 import * as itemActions from '../../redux/items/actions/index';
@@ -14,11 +14,11 @@ import * as itemActions from '../../redux/items/actions/index';
 import 'style/theme/main.scss';
 
 class Home extends React.Component {
-  static async getInitialProps({ query, store }) {
+  static async getInitialProps({ store }) {
     await Promise.all([
       store.dispatch(itemActions.ProcessRawData()),
     ]);
-    return {  };
+    return {};
   }
 
   constructor(props) {
@@ -26,20 +26,19 @@ class Home extends React.Component {
     this.state = {
     };
   }
+
   render() {
     return (
       <div className="app">
         <MetaData />
         <Body />
         <Faq />
+        <Footer />
       </div>
 
     );
   }
 }
-
-Home.propTypes = {
-};
 
 const mapStateToProps = (state) => ({
   fires: state.items.fires,

@@ -33,6 +33,11 @@
     margin-left: 10px;
     margin-bottom: -2px;
     cursor: pointer;
+
+    @media (max-width: 500px){
+      display: none;
+    }
+
   }
 
 }

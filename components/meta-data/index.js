@@ -2,7 +2,6 @@
 
 import Head from 'next/head';
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 export class MetaData extends React.Component {
@@ -15,13 +14,13 @@ export class MetaData extends React.Component {
     gtag('config', 'UA-69537450-7');
   }
 
-  getDescription = () => {
-    return 'Track the biggest wildfires globally.'
-  }
+  getDescription = () => (
+    'Track the biggest wildfires globally.'
+  )
 
-  getTitle = () => {
-    return 'Track Wildfires';
-  }
+  getTitle = () => (
+    'Track Wildfires'
+  )
 
   render() {
     return (
@@ -33,7 +32,7 @@ export class MetaData extends React.Component {
         <meta name="description" content={this.getDescription()} />
         <meta httpEquiv="content-language" content="en" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="canonical" href={`https://trackwildfires.com`} />
+        <link rel="canonical" href="https://trackwildfires.com" />
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://trackwildfires.com" />
@@ -53,10 +52,7 @@ export class MetaData extends React.Component {
   }
 }
 
-MetaData.propTypes = {
-};
-
-const mapStateToProps = (state) => ({
+const mapStateToProps = () => ({
 });
 
 const mapDispatchToProps = () => ({ });

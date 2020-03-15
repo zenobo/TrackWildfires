@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -7,33 +8,63 @@ import './style.scss';
 import { entryDate } from 'utility';
 
 const FireDetails = ({ items }) => {
+  const getSource = (source) => {
+    const tlds = ['.com/', '.wiki/', '.org/'];
+    let shortSource = '';
+    // Check all tlds
+    tlds.map((tld) => {
+      if (source.includes(tld)) {
+        shortSource = source.split(tld)[0] + tld.replace('/', '');
+      }
+      return source;
+    });
+    return shortSource;
+  };
 
-  let { singleFire } = items;
-  console.log(singleFire)
+  const {
+    singleFire: {
+      name, country, fromDate, sources,
+    },
+  } = items;
+
   return (
     <div className="fire-details-container">
       <h2>
-        About {singleFire.name}
-        <a href="/" className="fire-details-learn">
+        About {name}
+        <a href={sources[0]} className="fire-details-learn">
           Learn more
         </a>
       </h2>
       <div className="fire-details-inner">
         <div className="fire-details-left">
-          <p>Country: {singleFire.country}</p>
-          <p>Started: {entryDate(singleFire.fromDate)}</p>
+          <p>Country: {country}</p>
+          <p>Started: {entryDate(fromDate)}</p>
         </div>
         <div className="fire-details-right">
           <p>Sources: </p>
-          <p>1) Wikipedia.com</p>
+          {sources.map((val, index) => (
+            <a
+              key={val}
+              href={val}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {index + 1}) {getSource(val)}
+            </a>
+          ))}
         </div>
       </div>
     </div>
-  )
+  );
 };
 
 
 FireDetails.propTypes = {
+  items: PropTypes.shape(
+    PropTypes.shape({
+      name: PropTypes.string,
+    }),
+  ).isRequired,
 };
 
 const mapStateToProps = (state) => ({

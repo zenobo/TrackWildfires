@@ -1,5 +1,7 @@
 /* eslint-disable object-curly-newline */
 
+/* Wildfire Database */
+
 module.exports = {
   fires: [
     {
@@ -8,10 +10,9 @@ module.exports = {
       country: 'Australia',
       size: 16000000,
       fromDate: 1564632000000,
-      toDate: 1000000,
       sources: [
-        'https://wikipedia.com/Australia-fire-2019'
-      ]
+        'https://en.wikipedia.org/wiki/2019%E2%80%9320_Australian_bushfire_season',
+      ],
     },
     {
       name: 'Northwest Territories 2014',
@@ -19,7 +20,9 @@ module.exports = {
       country: 'Canada',
       size: 8600000,
       fromDate: 1533096000000,
-      toDate: 10000
+      sources: [
+        'https://en.wikipedia.org/wiki/2014_Northwest_Territories_fires',
+      ],
     },
     {
       name: 'Siberian wildfires 2019',
@@ -27,7 +30,9 @@ module.exports = {
       country: 'Russia',
       size: 7400000,
       fromDate: 1561953600000,
-      toDate: 10000
+      sources: [
+        'https://en.wikipedia.org/wiki/2019_Siberia_wildfires',
+      ],
     },
     {
       name: 'BC 2018',
@@ -35,7 +40,9 @@ module.exports = {
       country: 'Canada',
       size: 3346508,
       fromDate: 1533096000000,
-      toDate: 10000
+      sources: [
+        'https://en.wikipedia.org/wiki/2018_British_Columbia_wildfires',
+      ],
     },
     {
       name: 'Fort McMurray 2016',
@@ -43,7 +50,9 @@ module.exports = {
       country: 'Canada',
       size: 1456810,
       fromDate: 1462075200000,
-      toDate: 10000
+      sources: [
+        'https://en.wikipedia.org/wiki/2016_Fort_McMurray_wildfire',
+      ],
     },
     {
       name: 'BC Wildfires 2017',
@@ -51,7 +60,9 @@ module.exports = {
       country: 'Canada',
       size: 1216053,
       fromDate: 1499313600000,
-      toDate: 10000
+      sources: [
+        'https://en.wikipedia.org/wiki/2017_British_Columbia_wildfires',
+      ],
     },
     {
       name: 'Taylor Complex 2004',
@@ -59,7 +70,9 @@ module.exports = {
       country: 'USA',
       size: 1305592,
       fromDate: 1089691200000,
-      toDate: 10000
+      sources: [
+        'https://en.wikipedia.org/wiki/Taylor_Complex_Fire',
+      ],
     },
     {
       name: 'Greek Forest Fires 2007',
@@ -67,7 +80,9 @@ module.exports = {
       country: 'Greece',
       size: 670000,
       fromDate: 1187755200000,
-      toDate: 10000
+      sources: [
+        'https://en.wikipedia.org/wiki/2007_Greek_forest_fires',
+      ],
     },
     {
       name: 'Black Saturday Bushfires 2009',
@@ -75,7 +90,9 @@ module.exports = {
       country: 'Australia',
       size: 450000,
       fromDate: 1233982800000,
-      toDate: 10000
+      sources: [
+        'https://en.wikipedia.org/wiki/2007_Greek_forest_fires',
+      ],
     },
     {
       name: 'Mendocino Complex Fire',
@@ -83,7 +100,9 @@ module.exports = {
       country: 'USA',
       size: 459102,
       fromDate: 1532664000000,
-      toDate: 10000
+      sources: [
+        'https://en.wikipedia.org/wiki/Mendocino_Complex_Fire',
+      ],
     },
     {
       name: 'Montana wildfires 2017',
@@ -91,7 +110,9 @@ module.exports = {
       country: 'USA',
       size: 438000,
       fromDate: 1496289600000,
-      toDate: 10000
+      sources: [
+        'https://en.wikipedia.org/wiki/2017_Montana_wildfires',
+      ],
     },
     {
       name: 'Carr Fire 2018',
@@ -99,7 +120,9 @@ module.exports = {
       country: 'USA',
       size: 229651,
       fromDate: 1532318400000,
-      toDate: 10000
+      sources: [
+        'https://en.wikipedia.org/wiki/Carr_Fire',
+      ],
     },
     {
       name: 'Camp Fire 2018',
@@ -107,7 +130,9 @@ module.exports = {
       country: 'USA',
       size: 153336,
       fromDate: 1541653200000,
-      toDate: 10000
+      sources: [
+        'https://en.wikipedia.org/wiki/Camp_Fire_(2018)',
+      ],
     },
   ],
 };

@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-
-// Redux
-import * as itemActions from '../../redux/items/actions/index';
 
 // Components
 import MetaData from 'components/meta-data';
 import Body from 'components/body';
 import Faq from 'components/faq';
-import FireDetails from 'components/fire-details'; 
+import FireDetails from 'components/fire-details';
+import Footer from 'components/footer';
+
+// Redux
+import * as itemActions from '../../redux/items/actions/index';
 
 // CSS
 import 'style/theme/main.scss';
@@ -29,21 +29,20 @@ class Single extends React.Component {
     this.state = {
     };
   }
+
   render() {
     return (
       <div className="app">
         <MetaData />
-        <Body single={true} />
+        <Body single />
         <FireDetails />
         <Faq />
+        <Footer />
       </div>
 
     );
   }
 }
-
-Single.propTypes = {
-};
 
 const mapStateToProps = (state) => ({
   fires: state.items.fires,

@@ -3,9 +3,18 @@
 
   & a{
     color: white;
+
+    @media (max-width: 500px){
+      display: block;
+    }
+
   }
 
   & .nav-missing-info{
     float: right;
+    
+    @media (max-width: 500px){
+      float: none;
+    }
   }
 }

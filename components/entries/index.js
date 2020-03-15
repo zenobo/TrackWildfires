@@ -36,7 +36,7 @@ const Warning = () => (
   <div className="warning-container">
     There are thousands of fires that occur every year which are not
     indexed here. This website only tracks large scale wildfires.
-    View the database on github.
+    View the database on <a href="https://github.com/zenobo/TrackWildfires/blob/master/data/constants.js">github</a>.
   </div>
 );
 

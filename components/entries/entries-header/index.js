@@ -13,9 +13,9 @@ class EntriesHeader extends React.Component {
     return (
       <h2 className="entries-header-container">
         Biggest fires over past 20 years
-        <span>
+        {/**<span>
           Filter Worldwide <img src="/images/down.svg" />
-        </span>
+        </span>**/}
       </h2>
     );
   }

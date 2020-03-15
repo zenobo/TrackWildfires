@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 class Title extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -11,10 +10,12 @@ class Title extends React.Component {
   }
 
   render() {
-    let { singleFire } = this.props.items;
+    const { items } = this.props;
+    const { singleFire } = items;
     return (
       <h1>
-        Damage From {singleFire.name ? singleFire.name : 'Biggest Wildfires'}
+        <span>Damage From</span>
+        {singleFire.name ? singleFire.name : 'Biggest Wildfires'}
       </h1>
     );
   }

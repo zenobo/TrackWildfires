@@ -1,15 +1,17 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import './style.scss';
-
-import BarChart from './barchart';
+// Components
 import Nav from 'components/nav';
+import BarChart from './barchart';
 import Title from './title';
 
-class Header extends React.Component {
+// CSS
+import './style.scss';
 
+class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +19,8 @@ class Header extends React.Component {
   }
 
   render() {
-    const { total, singleFire } = this.props.items;
+    const { items } = this.props;
+    const { total, singleFire } = items;
     const { fireIndex } = singleFire;
     return (
       <div className="header-container">

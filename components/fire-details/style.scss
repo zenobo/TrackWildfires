@@ -50,7 +50,11 @@
     width: 50%;
     display: inline-block;
 
-    @media(max-width: 450px){
+    & a{
+      color: black;
+    }
+
+    @media(max-width: 650px){
       display: block;
       width: 100%;
     }

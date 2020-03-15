@@ -14,81 +14,77 @@ class BarChart extends React.Component {
     };
   }
 
-  componentDidMount(){
+  componentDidMount() {
     const lineColor = 'rgba(255, 255, 255, 0.37)';
-		const color = Chart.helpers.color;
-    const {labels, sizes} = this.props.items;
+    const { items } = this.props;
+    const { labels, sizes } = items;
     const { getXAxesTicks } = this;
 
-		const horizontalBarChartData = {
-			labels: labels,
-			datasets: [{
-				label: 'Acres Burned',
-				backgroundColor: this.getBarColors(),
-				borderColor: 'white',
-				borderWidth: 1,
-				data: sizes
-			}]
-		};
+    const horizontalBarChartData = {
+      labels,
+      datasets: [{
+        label: 'Acres Burned',
+        backgroundColor: this.getBarColors(),
+        borderColor: 'white',
+        borderWidth: 1,
+        data: sizes,
+      }],
+    };
 
-		window.onload = function() {
-			const ctx = document.getElementById('header-barchart').getContext('2d');
-			window.myHorizontalBar = new Chart(ctx, {
-				type: 'horizontalBar',
-				data: horizontalBarChartData,
-				options: {
-					elements: {
-						rectangle: {
-							borderWidth: 2,
-						}
-					},
+    window.onload = () => {
+      const ctx = document.getElementById('header-barchart').getContext('2d');
+      window.myHorizontalBar = new Chart(ctx, {
+        type: 'horizontalBar',
+        data: horizontalBarChartData,
+        options: {
+          elements: {
+            rectangle: {
+              borderWidth: 2,
+            },
+          },
           animation: false,
           responsive: true,
           maintainAspectRatio: false,
-					legend: {
-						position: 'right',
-					},
-					title: {
-						display: false
-					},
+          title: {
+            display: false,
+          },
           gridLines: {
-            display: false ,
-            color: 'white'
+            display: false,
+            color: 'white',
           },
           legend: {
-            display:false
+            display: false,
           },
           tooltips: {
             backgroundColor: '#fe7030',
             borderColor: 'white',
-						borderWidth: 1,
+            borderWidth: 1,
             cornerRadius: 1,
             displayColors: false,
             callbacks: {
-                label: function(label, data) {
-                    return label.xLabel.toLocaleString() + ' Acres Burned';
-                }
-            }
+              label: (label) => (
+                `${label.xLabel.toLocaleString()} Acres Burned`
+              ),
+            },
           },
           scales: {
             xAxes: [{
               gridLines: {
                 display: false,
-                color: 'white'
+                color: 'white',
               },
               ticks: {
                 fontColor: 'white',
                 beginAtZero: true,
                 autoSkip: true,
                 maxTicksLimit: getXAxesTicks(),
-                userCallback: function(label, index, labels) {
-                  if(label=='0') return '0';
-                  return abbreviateNumber(label) + ' Acres';
-                }
+                userCallback: (label) => (
+                  label === '0' ? label : `${abbreviateNumber(label)} Acres`
+                ),
               },
               scaleLabel: {
                 display: false,
-              }
+              },
             }],
             yAxes: [{
               gridLines: {
@@ -99,44 +95,50 @@ class BarChart extends React.Component {
               ticks: {
                 fontColor: 'white',
                 callback: (value, index) => {
-                  if(window.screen.width < 650){
+                  if (window.screen.width < 650) {
                     return fires[index].shortName;
-                  }else{
-                    return value;
                   }
-                }
-              }
-            }]
-          }
-				}
-			});
-
-		};
+                  return value;
+                },
+              },
+            }],
+          },
+        },
+      });
+    };
   }
 
   getBarColors = () => {
-    const color = Chart.helpers.color;
-    let { labels, singleFire } = this.props.items;
+    const {
+      helpers: {
+        color,
+      },
+    } = Chart;
+    const {
+      items: {
+        labels, singleFire,
+      },
+    } = this.props;
     const fireColor = color('white');
     return labels.map((item, i) => (
-      singleFire.name == labels[i] ? fireColor.alpha(1).rgbString() : fireColor.alpha(0.5).rgbString()
+      singleFire.name === labels[i]
+        ? fireColor.alpha(1).rgbString()
+        : fireColor.alpha(0.5).rgbString()
     ));
   }
 
-  getXAxesTicks = () => {
-    if(window.screen.width < 650){
-      return 2
-    }else{
-      return 4;
-    }
-  }
+  getXAxesTicks = () => (
+    window.screen.width < 650
+      ? 2
+      : 4
+  )
 
   render() {
     return (
       <div className="bar-chart">
         <p className="chart-title">Top 10 over the past 20 years</p>
         <div className="chart-container">
-          <canvas id="header-barchart"></canvas>
+          <canvas id="header-barchart" />
         </div>
         <p>Total acres burned (millions)</p>
       </div>
@@ -149,7 +151,7 @@ BarChart.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  items: state.items
+  items: state.items,
 });
 
 const mapDispatchToProps = () => ({ });

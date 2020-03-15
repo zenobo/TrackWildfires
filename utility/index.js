@@ -15,5 +15,5 @@ module.exports = {
   },
   entrySize: (size) => (
     size.toLocaleString()
-  )
+  ),
 };

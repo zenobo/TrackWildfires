@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 // Data
@@ -9,26 +8,18 @@ import FaqRow from './faq-row';
 
 import './style.scss';
 
-const Faq = () => {
-  const [items, setItem] = React.useState(faq);
+const Faq = () => (
+  <div className="faq-container">
+    {
+      faq.map((item, index) => (
+        <FaqRow key={index} item={item} />
+      ))
+    }
+  </div>
+);
 
-  return (
-    <div className="faq-container">
-      {
-        faq.map((item) => (
-          <FaqRow item={item} />
-        ))
-      }
-    </div>
-  )
-};
+const mapStateToProps = () => ({
 
-
-Faq.propTypes = {
-};
-
-const mapStateToProps = (state) => ({
-  items: state.items,
 });
 
 const mapDispatchToProps = () => ({ });

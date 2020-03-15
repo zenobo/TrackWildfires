@@ -1,0 +1,53 @@
+.footer-container{
+  width: $page-max-width;
+  margin: 20px auto;
+  margin-top: 40px;
+
+  @media (max-width: 950px){
+    width: calc(100% - 40px);
+  }
+
+  a {
+    text-decoration: none;
+    color: $dark-grey;
+  }
+
+  & .footer-left{
+    display: inline-block;
+    width: 30%;
+    float: left;
+    a {
+      display: block;
+    }
+    @media (max-width: 650px){
+      display: block;
+      float: none;
+      width: 100%;
+      text-align: center;
+      & a {
+        display: inline-block;
+        margin: 0 15px;
+      }
+    }
+  }
+
+  & .footer-middle{
+    display: inline-block;
+    width: 40%;
+    text-align: center;
+    font-size: 21px;
+    font-weight: 800;
+
+    @media (max-width: 650px){
+      display: block;
+      width: 100%;
+    }
+
+    & a{
+      margin-top: 5px;
+      display: inline-block;
+    }
+
+  }
+
+}
