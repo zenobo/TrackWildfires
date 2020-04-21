@@ -4,23 +4,14 @@ import { connect } from 'react-redux';
 
 import './style.scss';
 
-class Nav extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
-
-  render() {
-    const { items } = this.props;
-    const { singleFire } = items;
-    return (
-      <div className="nav-links">
-        {singleFire.name && <a href="/" className="nav-home">Back to directory</a>}
-        <a href="https://github.com/zenobo/TrackWildfires/blob/master/data/constants.js" className="nav-missing-info">Missing info? Suggest an update</a>
-      </div>
-    );
-  }
+const Nav = ({ items }) => {
+  const { singleFire } = items;
+  return (
+    <div className="nav-links">
+      {singleFire.name && <a href="/" className="nav-home">Back to directory</a>}
+      <a href="https://github.com/zenobo/TrackWildfires/blob/master/data/constants.js" className="nav-missing-info">Missing info? Suggest an update</a>
+    </div>
+  );
 }
 
 

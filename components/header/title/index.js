@@ -2,23 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-class Title extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
-
-  render() {
-    const { items } = this.props;
-    const { singleFire } = items;
-    return (
-      <h1>
-        <span>Damage From</span>
-        {singleFire.name ? singleFire.name : 'Biggest Wildfires'}
-      </h1>
-    );
-  }
+const Title = ({items}) => {
+  const { singleFire } = items;
+  return (
+    <h1>
+      <span>Damage From</span>
+      {singleFire.name ? singleFire.name : 'Biggest Wildfires'}
+    </h1>
+  );
 }
 
 Title.propTypes = {

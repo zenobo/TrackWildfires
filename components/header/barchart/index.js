@@ -7,24 +7,17 @@ import { abbreviateNumber } from 'utility';
 
 import { fires } from '../../../data/constants';
 
-class BarChart extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
+const BarChart = ({items}) => {
 
-  componentDidMount() {
+  React.useEffect(() => {
     const lineColor = 'rgba(255, 255, 255, 0.37)';
-    const { items } = this.props;
     const { labels, sizes } = items;
-    const { getXAxesTicks } = this;
 
     const horizontalBarChartData = {
       labels,
       datasets: [{
         label: 'Acres Burned',
-        backgroundColor: this.getBarColors(),
+        backgroundColor: getBarColors(),
         borderColor: 'white',
         borderWidth: 1,
         data: sizes,
@@ -106,19 +99,17 @@ class BarChart extends React.Component {
         },
       });
     };
-  }
+  }, [])
 
-  getBarColors = () => {
+  const getBarColors = () => {
     const {
       helpers: {
         color,
       },
     } = Chart;
     const {
-      items: {
-        labels, singleFire,
-      },
-    } = this.props;
+      labels, singleFire,
+    } = items;
     const fireColor = color('white');
     return labels.map((item, i) => (
       singleFire.name === labels[i]
@@ -127,23 +118,21 @@ class BarChart extends React.Component {
     ));
   }
 
-  getXAxesTicks = () => (
+  const getXAxesTicks = () => (
     window.screen.width < 650
       ? 2
       : 4
   )
 
-  render() {
-    return (
-      <div className="bar-chart">
-        <p className="chart-title">Top 10 over the past 20 years</p>
-        <div className="chart-container">
-          <canvas id="header-barchart" />
-        </div>
-        <p>Total acres burned (millions)</p>
+  return (
+    <div className="bar-chart">
+      <p className="chart-title">Top 10 over the past 20 years</p>
+      <div className="chart-container">
+        <canvas id="header-barchart" />
       </div>
-    );
-  }
+      <p>Total acres burned (millions)</p>
+    </div>
+  );
 }
 
 

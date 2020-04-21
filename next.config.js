@@ -19,6 +19,7 @@ module.exports = withSass(withCSS({
     // combine the map of post pages with the home
     return Object.assign({}, pages, {
       '/': { page: '/' },
+      '/contact': { page: '/contact' },
     })
   },
   module: {

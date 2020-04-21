@@ -31,7 +31,7 @@ const FireDetails = ({ items }) => {
     <div className="fire-details-container">
       <h2>
         About {name}
-        <a href={sources[0]} className="fire-details-learn">
+        <a href={sources[0]} className="fire-details-learn" target="_blank">
           Learn more
         </a>
       </h2>

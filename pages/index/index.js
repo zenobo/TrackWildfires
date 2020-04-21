@@ -13,32 +13,21 @@ import * as itemActions from '../../redux/items/actions/index';
 // CSS
 import 'style/theme/main.scss';
 
-class Home extends React.Component {
-  static async getInitialProps({ store }) {
-    await Promise.all([
-      store.dispatch(itemActions.ProcessRawData()),
-    ]);
-    return {};
-  }
+const Home = () => (
+  <div className="app">
+    <MetaData />
+    <Body />
+    <Faq />
+    <Footer />
+  </div>
+);
 
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
-
-  render() {
-    return (
-      <div className="app">
-        <MetaData />
-        <Body />
-        <Faq />
-        <Footer />
-      </div>
-
-    );
-  }
-}
+Home.getInitialProps = async ({ store }) => {
+  await Promise.all([
+    store.dispatch(itemActions.ProcessRawData()),
+  ]);
+  return {};
+};
 
 const mapStateToProps = (state) => ({
   fires: state.items.fires,

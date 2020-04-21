@@ -7,29 +7,20 @@ import './style.scss';
 import EntriesHeader from './entries-header';
 import Entry from './entry';
 
-class Entries extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
+const Entries = ({items}) => {
+  return (
+    <div className="entries-container">
+      <Warning />
+      <EntriesHeader />
 
-  render() {
-    const { items } = this.props;
-    return (
-      <div className="entries-container">
-        <Warning />
-        <EntriesHeader />
-
-        <div className="entries-table">
-          {items.map((entry, index) => (
-            <Entry key={entry.name} entry={entry} />
-          ))}
-        </div>
-
+      <div className="entries-table">
+        {items.map((entry, index) => (
+          <Entry key={entry.name} entry={entry} />
+        ))}
       </div>
-    );
-  }
+
+    </div>
+  );
 }
 
 const Warning = () => (

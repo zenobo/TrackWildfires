@@ -14,34 +14,25 @@ import * as itemActions from '../../redux/items/actions/index';
 // CSS
 import 'style/theme/main.scss';
 
-class Single extends React.Component {
-  static async getInitialProps({ query, store }) {
-    const { fire } = query;
-    await Promise.all([
-      store.dispatch(itemActions.ProcessRawData()),
-      store.dispatch(itemActions.SetFireDetails(fire)),
-    ]);
-    return { };
-  }
+const Single = () => {
+  return (
+    <div className="app">
+      <MetaData />
+      <Body single />
+      <FireDetails />
+      <Faq />
+      <Footer />
+    </div>
+  );
+}
 
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
-
-  render() {
-    return (
-      <div className="app">
-        <MetaData />
-        <Body single />
-        <FireDetails />
-        <Faq />
-        <Footer />
-      </div>
-
-    );
-  }
+Single.getInitialProps = async ({ query, store }) => {
+  const { fire } = query;
+  await Promise.all([
+    store.dispatch(itemActions.ProcessRawData()),
+    store.dispatch(itemActions.SetFireDetails(fire)),
+  ]);
+  return { };
 }
 
 const mapStateToProps = (state) => ({

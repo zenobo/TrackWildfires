@@ -11,36 +11,27 @@ import Title from './title';
 // CSS
 import './style.scss';
 
-class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
+const Header = ({items}) => {
+  const { total, singleFire } = items;
+  const { fireIndex } = singleFire;
+  return (
+    <div className="header-container">
+      <Nav />
 
-  render() {
-    const { items } = this.props;
-    const { total, singleFire } = items;
-    const { fireIndex } = singleFire;
-    return (
-      <div className="header-container">
-        <Nav />
+      <div className="header-inner">
+        <Title />
+        <h2>
+          {singleFire.name ? singleFire.size.toLocaleString() : total.toLocaleString()} Acres
+          <span>
+            {fireIndex ? `#${fireIndex} Biggest` : 'Total'}
+          </span>
+        </h2>
+        <LinkText />
 
-        <div className="header-inner">
-          <Title />
-          <h2>
-            {singleFire.name ? singleFire.size.toLocaleString() : total.toLocaleString()} Acres
-            <span>
-              {fireIndex ? `#${fireIndex} Biggest` : 'Total'}
-            </span>
-          </h2>
-          <LinkText />
-
-          <BarChart />
-        </div>
+        <BarChart />
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 const LinkText = () => (
